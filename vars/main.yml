@@ -1,0 +1,13 @@
+---
+
+docker_unofficial_packages:
+  - docker
+  - docker-common
+  - container-selinux
+  - docker-selinux
+
+docker_dependencies:
+  - yum-utils
+
+docker_yum_repository_url: https://docs.docker.com/engine/installation/linux/repo_files/centos/docker.repo
+docker_yum_repository_file_name: docker.repo
