@@ -1,0 +1,12 @@
+---
+
+- name: create the docker group
+  group:
+    name: docker
+
+- name: add the user to the docker group
+  user:
+    name: "{{item}}"
+    groups: docker
+    append: yes
+  with_items: "{{docker_users | default([])}}"

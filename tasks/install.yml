@@ -1,0 +1,34 @@
+---
+
+- when: ansible_distribution == "CentOS"
+  block:
+    - when: ansible_distribution_major_version == "7"
+      block:
+        - set_fact:
+            version_suffix: "-1.el7.centos"
+
+- name: remove unofficial Docker packages
+  yum:
+    name: "{{item}}"
+    state: absent
+  with_items: "{{docker_unofficial_packages}}"
+
+- name: install dependencies
+  yum:
+    name: "{{item}}"
+  with_items: "{{ docker_dependencies }}"
+
+- name: set up yum repository
+  command: yum-config-manager --add-repo {{docker_yum_repository_url}}
+  args:
+    creates: /etc/yum.repos.d/{{docker_yum_repository_url | basename}}
+
+- name: install docker
+  yum:
+    name: docker-engine-{{docker_version}}{{version_suffix}}
+
+- name: start docker
+  systemd:
+    name: docker
+    state: started
+    enabled: yes

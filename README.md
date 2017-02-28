@@ -15,6 +15,9 @@ Role Variables
 
 ``` yaml
 docker_version: 1.13.1
+
+docker_users:
+  - user_name
 ```
 
 Dependencies
@@ -29,6 +32,8 @@ Example Playbook
 - hosts: servers
   vars:
     docker_version: 1.13.1
+    docker_users:
+      - user_name
   roles:
      - docker
 ```
