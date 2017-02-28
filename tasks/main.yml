@@ -22,7 +22,7 @@
       with_items: "{{ docker_dependencies }}"
 
     - name: set up yum repository
-      command: sudo yum-config-manage --add-repo {{docker_yum_repository_url}}
+      command: yum-config-manager --add-repo {{docker_yum_repository_url}}
       args:
         creates: /etc/yum.repos.d/{{docker_yum_repository_url | basename}}
 

@@ -1,7 +1,0 @@
----
-
-- hosts: localhost
-  roles:
-    - ansible-role-docker
-  vars:
-    docker_version: 1.13.1
