@@ -1,8 +1,6 @@
 Ansible Role Docker
 =========
 
-[![Build Status](https://travis-ci.org/akinobu-tani/ansible-role-docker.svg?branch=master)](https://travis-ci.org/akinobu-tani/ansible-role-docker)
-
 An ansible role to install docker.
 
 Requirements
