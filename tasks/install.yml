@@ -5,7 +5,7 @@
     - when: ansible_distribution_major_version == "7"
       block:
         - set_fact:
-            version_suffix: "-1.el7.centos"
+            version_suffix: ".ce-1.el7.centos"
 
 - name: remove unofficial Docker packages
   yum:
@@ -25,7 +25,7 @@
 
 - name: install docker
   yum:
-    name: docker-engine-{{docker_version}}{{version_suffix}}
+    name: docker-ce-{{docker_version}}{{version_suffix}}
 
 - name: start docker
   systemd:
