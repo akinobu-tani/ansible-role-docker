@@ -12,7 +12,7 @@ Role Variables
 --------------
 
 ``` yaml
-docker_version: 1.13.1
+docker_version: 17.03.0
 
 docker_users:
   - user_name
@@ -29,7 +29,7 @@ Example Playbook
 ``` yaml
 - hosts: servers
   vars:
-    docker_version: 1.13.1
+    docker_version: 17.03.0
     docker_users:
       - user_name
   roles:
