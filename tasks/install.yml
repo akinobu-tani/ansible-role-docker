@@ -7,12 +7,6 @@
         - set_fact:
             version_suffix: ".ce-1.el7.centos"
 
-- name: remove unofficial Docker packages
-  yum:
-    name: "{{item}}"
-    state: absent
-  with_items: "{{docker_unofficial_packages}}"
-
 - name: install dependencies
   yum:
     name: "{{item}}"
